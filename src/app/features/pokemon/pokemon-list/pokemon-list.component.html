@@ -1,8 +1,17 @@
 <div class="pokemon-list">
   <h1 class="pokemon-list__title">Pokemons</h1>
 
-  @if (isLoading()) {
-    <kah-loader />
+  @if (paginatedList() === null) {
+    <div class="pokemon-list__error">
+      Error occurred
+      <button
+        kahButton
+        (click)="refresh()"
+        class="pokemon-detail__back-button"
+      >
+        Try again
+      </button>
+    </div>
   } @else {
     <ul class="pokemon-list__items">
       @for (pokemon of paginatedList(); track pokemon.url) {
@@ -19,16 +28,7 @@
           <img src="assets/img/icons/chevron-right.svg" alt="Details">
         </li>
       } @empty {
-        <li class="pokemon-list__item pokemon-list__item--empty">
-          No pokemons found...
-          <button
-            kahButton
-            (click)="refresh()"
-            class="pokemon-detail__back-button"
-          >
-            Try again
-          </button>
-        </li>
+        <kah-loader />
       }
     </ul>
   }

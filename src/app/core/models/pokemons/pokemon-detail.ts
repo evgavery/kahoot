@@ -9,7 +9,7 @@ export interface PokemonDetail {
   };
   types: PokemonDetailType[];
   abilities: PokemonDetailAbility[];
-  // ...
+  // Model has more properties only used ones declared
 }
 
 export interface PokemonDetailAbility {

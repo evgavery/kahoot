@@ -1,7 +1,6 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 export const routes: Routes = [
-  {path: '', redirectTo: 'pokemons', pathMatch: 'full'},
   {
     path: 'pokemons',
     loadComponent: () =>
@@ -14,9 +13,13 @@ export const routes: Routes = [
           import('./features/pokemon/pokemon-list/pokemon-list.component').then(m => m.PokemonListComponent)
       },
       {
-        path: 'detail/:id',
+        path: ':id',
         loadComponent: () =>
           import('./features/pokemon/pokemon-detail/pokemon-detail.component').then(m => m.PokemonDetailComponent)
+      },
+      {
+        path: '**',
+        redirectTo: ''
       }
     ]
   },

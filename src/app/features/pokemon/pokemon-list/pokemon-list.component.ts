@@ -1,4 +1,13 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnInit, Signal, signal} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  OnInit,
+  Signal,
+  signal,
+  WritableSignal
+} from '@angular/core';
 import {PokemonService} from '../../../core/services/pokemon.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DestroySubDirective} from '../../../core/directives/destroy-sub.directive';
@@ -7,6 +16,7 @@ import {PaginatorComponent} from '../../../shared/paginator/paginator.component'
 import {LoaderComponent} from '../../../shared/loader/loader.component';
 import {TitleCasePipe} from '@angular/common';
 import {ButtonDirective} from '../../../core/directives/ui/button.directive';
+import {PokemonListItem} from '../../../core/models/pokemons/pokemon-list';
 
 @Component({
   selector: 'kah-pokemon-list',
@@ -26,22 +36,22 @@ export class PokemonListComponent extends DestroySubDirective implements OnInit{
   private router = inject(Router);
 
   readonly pageSize = 10;
-  currentPage = signal(1);
-  paginatedList = computed(() => {
+  currentPage: WritableSignal<number> = signal(1);
+  paginatedList:Signal<PokemonListItem[] | null> = computed(() => {
     const list = this.pokemonService.pokemonList();
+    if (list === null) { return null }
     const page = this.currentPage();
     const startIndex = (page - 1) * this.pageSize;
     return list.slice(startIndex, startIndex + this.pageSize);
   });
-  totalItems: Signal<number> = computed(() => this.pokemonService.pokemonList().length);
-
-  isLoading = this.pokemonService.isLoading;
+  totalItems: Signal<number> = computed(() => this.pokemonService.pokemonList() ? this.pokemonService.pokemonList()!.length : 0);
 
   constructor() {
     super();
   }
 
   ngOnInit(): void {
+    this.pokemonService.fetchPokemonList();
     this.route.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe(params => {
@@ -55,9 +65,7 @@ export class PokemonListComponent extends DestroySubDirective implements OnInit{
   }
 
   navigateToDetails(identifier: string): void {
-    this.router.navigate(['/pokemons', 'detail', identifier], {
-      queryParams: { page: this.currentPage() }
-    });
+    this.router.navigate(['/pokemons', identifier]);
   }
 
   refresh() {
