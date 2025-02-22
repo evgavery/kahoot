@@ -1,4 +1,4 @@
-import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {DestroySubDirective} from '../../../core/directives/destroy-sub.directive';
 import {PokemonDetail} from '../../../core/models/pokemons/pokemon-detail';
 import {ActivatedRoute} from '@angular/router';
@@ -24,7 +24,9 @@ import {ButtonDirective} from '../../../core/directives/ui/button.directive';
     ButtonDirective
   ],
   templateUrl: './pokemon-detail.component.html',
-  styleUrl: './pokemon-detail.component.scss'
+  styleUrl: './pokemon-detail.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class PokemonDetailComponent extends DestroySubDirective implements OnInit {
 
