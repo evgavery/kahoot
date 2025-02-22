@@ -1,0 +1,68 @@
+@use 'abstracts/variables' as vars;
+
+// Generic mixin for responsive media queries based on breakpoints
+@mixin respond-to($breakpoint) {
+  $max-width: map-get(vars.$breakpoints, $breakpoint);
+  @if $max-width {
+    @media screen and (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found for `#{$breakpoint}`.";
+  }
+}
+
+// Alias mixins for each breakpoint
+@mixin device-xxxl {
+  @include respond-to("xxxl") {
+    @content;
+  }
+}
+
+@mixin device-xxl {
+  @include respond-to("xxl") {
+    @content;
+  }
+}
+
+@mixin device-xl {
+  @include respond-to("xl") {
+    @content;
+  }
+}
+
+@mixin device-l {
+  @include respond-to("l") {
+    @content;
+  }
+}
+
+@mixin device-m {
+  @include respond-to("m") {
+    @content;
+  }
+}
+
+@mixin device-s {
+  @include respond-to("s") {
+    @content;
+  }
+}
+
+@mixin device-xs {
+  @include respond-to("xs") {
+    @content;
+  }
+}
+
+@mixin device-xxs {
+  @include respond-to("xxs") {
+    @content;
+  }
+}
+
+@mixin device-xxxs {
+  @include respond-to("xxxs") {
+    @content;
+  }
+}

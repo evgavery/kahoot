@@ -1,0 +1,31 @@
+@use 'abstracts/mixins' as mixins;
+
+h1 {
+  font-family: 'Pokemon Solid', 'Arial',  sans-serif;
+  letter-spacing: 0.15rem;
+  font-size: 3rem;
+
+  @include mixins.device-xl {
+    font-size: 2.5rem;
+  }
+
+  @include mixins.device-m {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-family: 'Pokemon Hollow', 'Arial',  sans-serif;
+  letter-spacing: 0.15rem;
+  font-size: 2rem;
+
+  @include mixins.device-m {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+h3, h4, h5, h6 {
+  font-weight: 700;
+}

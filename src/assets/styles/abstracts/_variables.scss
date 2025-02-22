@@ -1,0 +1,37 @@
+// Theme colors
+$colors: (
+  "primary": #FBCC08,
+  "secondary": #007bff,
+  "success": #28a745,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "info": #17a2b8,
+  "background": #ffffff,
+  "surface": #cdecec,
+  "text-primary": #212529,
+  "text-secondary": #6c757d,
+  "border": #dee2e6
+);
+
+// Breakpoints (for responsiveness)
+$breakpoints: (
+  "xxxl": 1681px,
+  "xxl": 1381px,
+  "xl": 1081px,
+  "l": 992px,
+  "m": 768px,
+  "s": 576px,
+  "xs": 481px,
+  "xxs": 410px,
+  "xxxs": 371px
+);
+
+// Function to fetch a color by name
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+// Common semantic variables
+$background-color: color('background');
+$text-color: color('text-primary');
+$border-color: color('border');

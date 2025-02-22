@@ -1,0 +1,15 @@
+@use 'variables' as vars;
+
+:root {
+  --primary-color: map-get(vars.$colors, "primary");
+  --secondary-color: map-get(vars.$colors, "secondary");
+  --success-color: map-get(vars.$colors, "success");
+  --danger-color: map-get(vars.$colors, "danger");
+  --warning-color: map-get(vars.$colors, "warning");
+  --info-color: map-get(vars.$colors, "info");
+  --background-color: map-get(vars.$colors, "background");
+  --surface-color: map-get(vars.$colors, "surface");
+  --text-primary-color: map-get(vars.$colors, "text-primary");
+  --text-secondary-color: map-get(vars.$colors, "text-secondary");
+  --border-color: map-get(vars.$colors, "border");
+}

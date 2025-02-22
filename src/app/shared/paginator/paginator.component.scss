@@ -1,0 +1,35 @@
+@use "abstracts/mixins" as mixins;
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+    width: 80px;
+
+    span {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  &__label {
+    @include mixins.device-m {
+      display: none;
+    }
+  }
+}

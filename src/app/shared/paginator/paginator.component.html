@@ -1,0 +1,22 @@
+@if (totalPages()) {
+  <div class="pagination-container">
+    Total: {{ totalItems() }}
+    <nav>
+      <button pokButton
+              (click)="previousPage()"
+              (keydown.arrowLeft)="previousPage()"
+              [disabled]="prevDisabled()">
+        <img src="assets/img/icons/chevron-left.svg" alt="Prev">
+        <span class="pagination-container__label">Prev</span>
+      </button>
+      <div class="pagination-container__meta"><span>{{ currentPage() }}</span>/{{ totalPages() }}</div>
+      <button pokButton
+              (click)="nextPage()"
+              (keydown.arrowRight)="nextPage()"
+              [disabled]="nextDisabled()">
+        <span class="pagination-container__label">Next</span>
+        <img src="assets/img/icons/chevron-right.svg" alt="Next">
+      </button>
+    </nav>
+  </div>
+}
