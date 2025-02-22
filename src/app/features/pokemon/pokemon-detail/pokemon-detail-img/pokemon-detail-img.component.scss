@@ -1,0 +1,15 @@
+.pok-image {
+  flex: 0 0 150px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

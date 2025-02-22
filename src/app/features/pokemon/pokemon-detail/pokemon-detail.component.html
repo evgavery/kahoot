@@ -1,1 +1,40 @@
-<p>pokemon-detail works!</p>
+<div class="pokemon-detail">
+  @if (error()) {
+    <div class="pokemon-detail__empty">
+      <h3>No pokemon found...</h3>
+      <button kahButton (click)="goBack()">Back to list</button>
+    </div>
+  } @else if (!pokemonDetail()) {
+    <kah-loader />
+  } @else {
+    <div class="pokemon-detail__container">
+      <header class="pokemon-detail__header">
+        <h2>{{ pokemonDetail()!.name | titlecase }}</h2>
+      </header>
+
+      <div class="pokemon-detail__body">
+        <div class="pokemon-detail__image">
+          <kah-pokemon-detail-img [pokemon]="pokemonDetail()!" />
+        </div>
+        <div class="pokemon-detail__meta">
+          <section class="pokemon-detail__section">
+            <h3 class="pokemon-detail__section-title">Parameters</h3>
+            <kah-pokemon-detail-parameters [pokemon]="pokemonDetail()!" />
+          </section>
+
+          <section class="pokemon-detail__section">
+            <h3 class="pokemon-detail__section-title">Types</h3>
+            <kah-pokemon-detail-types [pokemonTypes]="pokemonDetail()!.types" />
+          </section>
+
+          <section class="pokemon-detail__section">
+            <h3 class="pokemon-detail__section-title">Abilities</h3>
+            <kah-pokemon-detail-abilities [pokemonAbilities]="pokemonDetail()!.abilities" />
+          </section>
+        </div>
+      </div>
+      <button kahButton (click)="goBack()" class="pokemon-detail__back-button">Back</button>
+    </div>
+  }
+
+</div>

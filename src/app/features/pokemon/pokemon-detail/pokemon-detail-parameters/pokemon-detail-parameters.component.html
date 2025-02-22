@@ -1,0 +1,22 @@
+<div class="pok-parameters">
+  <div class="pok-parameters__item">
+    <strong class="pok-parameters__label">Name:</strong>
+    <span class="pok-parameters__value" [title]="(pokemon().name | titlecase) || 'N/A'">{{ (pokemon().name | titlecase) || 'N/A' }}</span>
+  </div>
+  <div class="pok-parameters__item">
+    <strong class="pok-parameters__label">ID:</strong>
+    <span class="pok-parameters__value">{{ pokemon().id || 'N/A' }}</span>
+  </div>
+  <div class="pok-parameters__item">
+    <strong class="pok-parameters__label">Base Experience:</strong>
+    <span class="pok-parameters__value">{{ pokemon().base_experience || 'N/A' }}</span>
+  </div>
+  <div class="pok-parameters__item">
+    <strong class="pok-parameters__label">Height:</strong>
+    <span class="pok-parameters__value">{{ pokemon().height || 'N/A' }}</span>
+  </div>
+  <div class="pok-parameters__item">
+    <strong class="pok-parameters__label">Weight:</strong>
+    <span class="pok-parameters__value">{{ pokemon().weight || 'N/A' }}</span>
+  </div>
+</div>

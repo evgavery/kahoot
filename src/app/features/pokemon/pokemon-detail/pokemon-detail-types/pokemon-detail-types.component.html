@@ -1,0 +1,18 @@
+@if (!pokemonTypes()) {
+  No types
+} @else {
+  <ul class="pok-type-list">
+    @for (type of pokemonTypes(); track type) {
+      <li class="pok-type-list__badge pok-type-list__badge--{{ type.type.name | lowercase }}">
+        <img class="pok-type-list__badge-icon"
+             [ngSrc]="'assets/img/pokemon-types/' + (type.type.name | lowercase) + '.png'"
+             height="20"
+             width="20"
+             [alt]="type.type.name + ' icon'" />
+        <span class="pok-type-list__badge-text">{{ type.type.name | titlecase }}</span>
+      </li>
+    } @empty {
+      No types
+    }
+  </ul>
+}

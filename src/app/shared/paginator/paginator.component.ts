@@ -1,8 +1,11 @@
 import {ChangeDetectionStrategy, Component, computed, input, output} from '@angular/core';
+import {ButtonDirective} from '../../core/directives/ui/button.directive';
 
 @Component({
   selector: 'kah-paginator',
-  imports: [],
+  imports: [
+    ButtonDirective
+  ],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

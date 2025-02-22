@@ -1,0 +1,16 @@
+@if (!pokemonAbilities()) {
+  No abilities
+} @else {
+  <ul class="pok-abilities">
+    @for (ability of pokemonAbilities(); track ability) {
+      <li class="pok-abilities__item">
+        {{ ability.ability.name | titlecase }}
+        @if (ability.is_hidden) {
+          <span title="Hidden">(H)</span>
+        }
+      </li>
+    } @empty {
+      No abilities
+    }
+  </ul>
+}
