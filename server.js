@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 
 // Serve static files from the dist directory
-app.use(express.static(path.join(__dirname, 'dist/kahoot')));
+app.use(express.static(path.join(__dirname, 'dist/kahoot/browser')));
 
 // Redirect all traffic to index.html
 app.get('/*', (req, res) => {
