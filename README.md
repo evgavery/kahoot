@@ -84,7 +84,7 @@ Open your browser and navigate to http://localhost:4200/. The app will automatic
 To create a production-ready build:
 
 ```bash
-  ng build --prod
+  ng build --configuration production
 ```
 
 The compiled files will be output to the dist/ directory.
