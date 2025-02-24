@@ -37,6 +37,7 @@
     padding: 1rem;
 
     @include mixins.device-m() {
+      flex-wrap: nowrap;
       flex-direction: column;
       align-items: stretch;
     }
